@@ -7,7 +7,9 @@
 let arr = ['а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я'];
 
 const isPalindrome = (str) => {
+  //Здесь фильтруется входящая строка от пробелов,знаков припенания и переводится в нижний регистр.
   let filterStr = str.toLowerCase().split("").filter(i => arr.some(j => j.includes(i))).join("");
+  //Здесь отфильтрованная и перевернутая строка сравнивается с оригинальной.
   filterStr.split("").reverse().join("") === filterStr ? console.log(true) : console.log(false);
 };
 
@@ -108,7 +110,7 @@ class Book {
     this.title = title;
     this.author = author;
     this.isbn = isbn;
-    this.acess = acess;
+    this.acess = acess; //Если книга есть в наличии,то состояние true, иначе false, по умолчанию true.
   }
 }
 
@@ -121,6 +123,7 @@ class Library {
   }
   borrowBook(isbn) { //брать книгу по ее ISBN
     let indexBook = this.arrBooks.findIndex(book => book.isbn == isbn)
+    //Здесь проверяем есть ли в наличии книга которую хотим взять.
     if (this.arrBooks[indexBook].acess == false) {
       alert('Эта книга уже взята или такой книги нет в библиотеке')
     } else {
@@ -130,6 +133,7 @@ class Library {
   }
   returnBook(isbn) { //Возврат книги по еë ISBN
     let indexBook = this.arrBooks.findIndex(book => book.isbn == isbn)
+    //Здесь так же проверяем сдана ли книга в данный момент.
     if (this.arrBooks[indexBook].acess == true) {
       alert('Эта книга уже сдана, вы хотите нас обмануть???')
     } else {
@@ -155,6 +159,11 @@ myLibrary.addBook(secondBook)
 myLibrary.addBook(thirdBook)
 myLibrary.addBook(fourthBook)
 myLibrary.addBook(fifthBook)
+myLibrary.borrowBook(3)
+myLibrary.borrowBook(4)
+myLibrary.borrowBook(5)
+myLibrary.returnBook(4)
+myLibrary.listAvailableBooks()
 
 
 /*Задание 5: Решение проблем и оптимизация (1 час)
