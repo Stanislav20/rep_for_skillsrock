@@ -1,0 +1,38 @@
+.preloader {
+  text-align: center;
+  margin-top: 50%;
+}
+
+#users-list {
+  display: none;
+}
+
+.ulElem {
+  margin: auto;
+  padding: 0;
+}
+
+.liUser {
+  list-style: none;
+  margin-bottom: 30px;
+  text-align: center;
+  border: 2px solid #9E9E9E;
+  border-radius: 30px;
+  padding: 10px;
+}
+
+.imgUser {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.nameUser {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.emailUser {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
